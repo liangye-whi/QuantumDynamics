@@ -1,0 +1,67 @@
+% !TEX TS-program = pdflatex
+% !TEX root = ../QuantumDynamics.tex
+
+\chapter{含时薛定谔方程与二能级体系}
+\label{cpt:1}
+\section{含时薛定谔方程的通解}
+\begin{framed}
+本节参考Schiff, QM 3rd ed. 2.6-8节(pp 19--37)及 Messiah 2.15节(pp 68--71)。
+\end{framed}
+
+描述非相对论体系下微观粒子运动的薛定谔方程通式为
+\begin{equation}\label{eqn:tdsefull}
+i\hbar \dfrac{\pd \psi(\br,t)}{\pd t}=\bH(\br,t) \psi(\br,t)
+\end{equation}
+其中$ \bH $为哈密顿量，可能与时间有关。波函数$ \Psi(\br,t) $的模平方称为概率密度
+\begin{equation}\label{key}
+P(\br,t)=\psi^*(\br,t)\psi(\br,t)=|\psi(\br,t)|^2
+\end{equation}
+通常要求波函数归一化，即
+\begin{equation}\label{key}
+\int |\psi(\br,t)|^2d\tau=1
+\end{equation}
+在本书中，我们主要研究单粒子行为，因此波函数均为单粒子波函数。
+
+哈密顿量$ \bH $在坐标表象下通常可以写为两项之和
+\begin{equation}\label{key}
+\bH=-\dfrac{\hbar^2}{2m}\nabla^2+V(\br,t)
+\end{equation}
+通常第一项动能部分与时间无关，而第二项势能部分与时间有关。当体系有着随时间变化的势场时，哈密顿量就会包含时间。这也就是含时问题的来源。本章我们先讨论哈密顿量不含时的情况；在后面的部分，我们希望探讨哈密顿量含时间时的薛定谔方程的解法。
+
+假若哈密顿量不含时，我们既可以认为是系统本身的哈密顿量恒与时间无关，即定态，也可以认为是在时间演化的观点下研究某一瞬间。这时薛定谔方程写为
+\begin{equation}\label{eqn:tdse}
+i\hbar \dfrac{\pd \psi(\br,t)}{\pd t}=\bH(\br) \psi(\br,t)
+\end{equation}
+通常我们将波函数中的时间部分分离来求解薛定谔方程，设
+\begin{equation}\label{key}
+\psi(\br,t)=u(\br)f(t)
+\end{equation}
+代入\eqref{eqn:tdse}分离变量得
+\begin{gather}
+\bH(\br) u(\br)=E u(\br)\label{eqn:TISE}\\
+i\hbar \dfrac{\pd f(t)}{\pd t}=Ef(t)\label{eqn:timepart}
+\end{gather}
+前者即为定态薛定谔方程，解之可以得到一组哈密顿量的本征态$ u_n(\br) $以及对应的能量本征值$ E_n $；后者可以直接解出
+\begin{equation}\label{key}
+f(t)=Ce^{-\frac{iEt}{\hbar}}
+\end{equation}
+而积分常数$ C $可以交给$ u(\br) $进行归一化。因此当哈密顿量不含时间时，含时薛定谔方程的通解为
+\begin{equation}\label{key}
+\psi(\br,t)=\sum_nc_nu_n(\br)e^{-\frac{iE_nt}{\hbar}}
+\end{equation}
+这里$ u_n(\br) $是正交归一函数组，$ c_n $与时间无关且$ \sum_n |c_n|^2=1 $。此通解意味着假如体系处于哈密顿量的某一本征态上，则概率密度不随时间变化，且能量的测量值始终为固定值；而假如体系处于叠加态，体系在不同态上的布居却不随时间变化，因为时间部分的模始终为1：
+\begin{equation}\label{key}
+(c_ne^{-\frac{iE_nt}{\hbar}})^*(c_ne^{-\frac{iE_nt}{\hbar}})=|c_n|^2
+\end{equation}
+
+我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $作为标准正交基\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
+\begin{equation}\label{key}
+ H_{ij}=\la \phi_i|\bH|\phi_j\ra
+\end{equation}
+此时，在该希尔伯特空间中求解薛定谔方程就化为了哈密顿量矩阵对角化的问题。显然，若以哈密顿量本征态为一组基，则哈密顿量矩阵为对角矩阵，对角元即对应本征态的能量本征值。在通常的体系中，哈密顿量的本征态有无穷多个。下面一节将介绍将体系抽象为二能级体系以简化问题的思想。
+
+\section{二能级体系}
+\begin{framed}
+本节参考Atkins and Friedman, QM 3rd ed., pp 184--192。
+\end{framed}
+
