@@ -3,7 +3,7 @@
 
 \chapter{含时薛定谔方程与二能级体系}
 \label{cpt:1}
-\section{含时薛定谔方程的通解}
+\section{定态薛定谔方程的含时通解}
 \begin{framed}
 本节参考Schiff, QM 3rd ed., 2.6-8节(pp 19--37)及 Messiah QM, 2.15节(pp 68--71)。
 \end{framed}
@@ -12,7 +12,7 @@
 \begin{equation}\label{eqn:tdsefull}
 i\hbar \dfrac{\pd \psi(\br,t)}{\pd t}=\bH(\br,t) \psi(\br,t)
 \end{equation}
-其中$ \bH $为哈密顿量，可能与时间有关；$ \Psi(\br,t) $为波函数，其模的平方称为概率密度
+其中$ \bH $为哈密顿量，可能与时间有关，因此此方程亦称为\textbf{含时薛定谔方程}；$ \Psi(\br,t) $为波函数，其模的平方称为概率密度
 \begin{equation}\label{key}
 P(\br,t)=\psi^*(\br,t)\psi(\br,t)=|\psi(\br,t)|^2
 \end{equation}
@@ -41,24 +41,33 @@ i\hbar \dfrac{\pd \psi(\br,t)}{\pd t}=\bH(\br) \psi(\br,t)
 \bH(\br) u(\br)=E u(\br)\label{eqn:TISE}\\
 i\hbar \dfrac{\pd f(t)}{\pd t}=Ef(t)\label{eqn:timepart}
 \end{gather}
-前者即为定态薛定谔方程，解之可以得到一组哈密顿量的本征态$ u_n(\br) $以及对应的能量本征值$ E_n $；后者可以直接解出
+前者即为\textbf{定态薛定谔方程}，解之可以得到一组哈密顿量的本征态$ u_n(\br) $以及对应的能量本征值$ E_n $；后者可以直接解出
 \begin{equation}\label{key}
 f(t)=Ce^{-\frac{iEt}{\hbar}}
 \end{equation}
-而积分常数$ C $可以交给$ u(\br) $进行归一化。因此当哈密顿量不含时间时，含时薛定谔方程的通解为
+而积分常数$ C $可以交给$ u(\br) $进行归一化。因此定态薛定谔方程的含时通解为
 \begin{equation}\label{key}
 \psi(\br,t)=\sum_nc_nu_n(\br)e^{-\frac{iE_nt}{\hbar}}
 \end{equation}
-这里$ u_n(\br) $是正交归一函数组，$ c_n $与时间无关且$ \sum_n |c_n|^2=1 $。此通解意味着假如体系处于哈密顿量的某一本征态上，则概率密度不随时间变化，且能量的测量值始终为固定值；而假如体系处于叠加态，体系在不同态上的布居却不随时间变化，因为时间部分的模始终为1：
+这里$ u_n(\br) $是正交归一函数组，在Dirac记号下记为$ |n\ra $；$ c_n $与时间无关且$ \sum_n |c_n|^2=1 $。
+
+此通解意味着假如体系处于哈密顿量的某一本征态$ |n\ra $，则概率密度不随时间变化，且能量的测量值始终为确定值；而假如体系处于叠加态$ |\psi(t)\ra=\sum_nc_ne^{-\frac{iE_nt}{\hbar}}|n\ra $，体系在不同哈密顿量本征态上的布居不随时间变化，因为时间部分的模始终为1：
 \begin{equation}\label{key}
-(c_ne^{-\frac{iE_nt}{\hbar}})^*(c_ne^{-\frac{iE_nt}{\hbar}})=|c_n|^2
+\la n|\psi(t)\ra=(c_ne^{-\frac{iE_nt}{\hbar}})^*(c_ne^{-\frac{iE_nt}{\hbar}})=|c_n|^2
+\end{equation} 
+但是在该叠加态的初态上的布居却显然会发生变化：
+\begin{equation}\label{key}
+\la\psi(0)|\psi(t)\ra=\sum_nc_n^*(c_ne^{-\frac{iE_nt}{\hbar}})=\sum_n|c_n|^2e^{-\frac{iE_nt}{\hbar}}
 \end{equation}
+具体的变化行为，即求和的结果，一方面依赖于体系本身（$ E_n $），另一方面则与初态在本征态上的布居（$ |c_n|^2 $）有关系。
+
+下一节我们将借助最简单的二能级体系来直接观察这种条件下的时间演化。
 
 \section{二能级体系}
 \begin{framed}
 本节参考Atkins and Friedman, QM 3rd ed., pp 184--192。
 \end{framed}
-我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $作为标准正交基\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
+我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}作为标准正交基张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
 \begin{equation}\label{key}
 H_{ij}=\la \phi_i|\bH|\phi_j\ra
 \end{equation}
