@@ -5,14 +5,14 @@
 \label{cpt:1}
 \section{含时薛定谔方程的通解}
 \begin{framed}
-本节参考Schiff, QM 3rd ed. 2.6-8节(pp 19--37)及 Messiah 2.15节(pp 68--71)。
+本节参考Schiff, QM 3rd ed., 2.6-8节(pp 19--37)及 Messiah QM, 2.15节(pp 68--71)。
 \end{framed}
 
 描述非相对论体系下微观粒子运动的薛定谔方程通式为
 \begin{equation}\label{eqn:tdsefull}
 i\hbar \dfrac{\pd \psi(\br,t)}{\pd t}=\bH(\br,t) \psi(\br,t)
 \end{equation}
-其中$ \bH $为哈密顿量，可能与时间有关。波函数$ \Psi(\br,t) $的模平方称为概率密度
+其中$ \bH $为哈密顿量，可能与时间有关；$ \Psi(\br,t) $为波函数，其模的平方称为概率密度
 \begin{equation}\label{key}
 P(\br,t)=\psi^*(\br,t)\psi(\br,t)=|\psi(\br,t)|^2
 \end{equation}
@@ -54,14 +54,14 @@ f(t)=Ce^{-\frac{iEt}{\hbar}}
 (c_ne^{-\frac{iE_nt}{\hbar}})^*(c_ne^{-\frac{iE_nt}{\hbar}})=|c_n|^2
 \end{equation}
 
-我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $作为标准正交基\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
-\begin{equation}\label{key}
- H_{ij}=\la \phi_i|\bH|\phi_j\ra
-\end{equation}
-此时，在该希尔伯特空间中求解薛定谔方程就化为了哈密顿量矩阵对角化的问题。显然，若以哈密顿量本征态为一组基，则哈密顿量矩阵为对角矩阵，对角元即对应本征态的能量本征值。在通常的体系中，哈密顿量的本征态有无穷多个。下面一节将介绍将体系抽象为二能级体系以简化问题的思想。
-
 \section{二能级体系}
 \begin{framed}
 本节参考Atkins and Friedman, QM 3rd ed., pp 184--192。
 \end{framed}
+我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $作为标准正交基\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
+\begin{equation}\label{key}
+H_{ij}=\la \phi_i|\bH|\phi_j\ra
+\end{equation}
+此时，在该希尔伯特空间中求解薛定谔方程就化为了哈密顿量矩阵对角化的问题。显然，若以哈密顿量本征态为一组基，则哈密顿量矩阵为对角矩阵，对角元即对应本征态的能量本征值。
 
+通常哈密顿量的本征态有无穷多个，也就是说哈密顿量为无穷维。然而我们可以取抽象的二能级体系以简化问题。
