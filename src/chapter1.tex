@@ -65,7 +65,7 @@ f(t)=Ce^{-\frac{iEt}{\hbar}}
 
 \section{时间演化算符}
 \begin{framed}
-本节参考J. J. Sakurai, Modern QM, Rev ed., 第2章, pp 184--192。
+本节参考J. J. Sakurai, Modern QM, Rev ed., 第2章。
 \end{framed}
 我们从另一个角度来描述量子体系时间演化。
 
@@ -108,7 +108,7 @@ i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
 \mU(t)=\exp\left(\dfrac{-iHt}{\hbar}\right)
 \end{equation}
 作用时算符可以写为
-\begin{equation}\label{key}
+\begin{equation}\label{eqn:1.2.9}
 \mU(t)=\sum_n\exp\left(\dfrac{-iE_nt}{\hbar}\right)|n\ra\la n|
 \end{equation}
 其中态$ |n\ra $为哈密顿量的一组完备的本征态。可以验证作用结果与上节所求得的结果完全一致。
@@ -127,3 +127,55 @@ i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
 本章我们主要介绍哈密顿量不含时的情况。关于后两种哈密顿量含时的情况将于下一章讨论。
 
 \section{静态哈密顿量非本征态的时间演化}
+\begin{framed}
+本章参考Nitzan 第2章, pp 57--63。	
+\end{framed}
+
+我们以最简单的二能级体系来讨论这个问题。
+
+假设态$ |a\ra $和$ |b\ra $是零阶哈密顿量$ H^{(0)} $的正交归一的本征态，能量本征值分别为$ E_a,\ E_b $。现在该体系中加入一个微扰$ V $，不失一般性，令$ V $的对角元为0，而非对角元可以取复数
+\begin{equation}\label{key}
+V_{ab}=V_{ba}^*=Ve^{-i\eta}
+\end{equation}
+这里$ V $是非负实数，$ \eta $为实数。则哈密顿量为
+\begin{equation}\label{key}
+H=\begin{pmatrix}
+E_a&Ve^{-i\eta}\\Ve^{i\eta}&E_b
+\end{pmatrix}
+\end{equation}
+设此时哈密顿量的本征态为$ |+\ra $和$ |-\ra $，其本征值可以由哈密顿量对角化得到
+\begin{equation}\label{key}
+E_\pm=\dfrac{E_a+E_b\pm\sqrt{(E_a-E_b)^2+4V^2}}{2}
+\end{equation}
+并解出这两个本征态在零阶表象下的表示
+\begin{align}
+|+\ra=&\cos\theta e^{-i\eta/2}|a\ra+\sin\theta e^{i\eta/2}|b\ra\\
+|-\ra=&-\sin\theta e^{-i\eta/2}|a\ra+\cos\theta e^{i\eta/2}|b\ra
+\end{align}
+其中
+\begin{equation}\label{key}
+\theta\equiv\arctan\dfrac{E_+-E_a}{V}=\arctan\dfrac{\Delta-\sqrt{\Delta^2+4V^2}}{2V},\quad \Delta=E_a-E_b
+\end{equation}
+我们可以反解出此时的零阶本征态
+\begin{align}
+|a\ra=&e^{i\eta/2}(\cos\theta|+\ra-\sin\theta|-\ra)\\
+|b\ra=&e^{-i\eta/2}(\sin\theta|+\ra+\cos\theta|-\ra)
+\end{align}
+对照\eqref{eqn:1.2.9}，我们可以写出两个零阶本征态的含时演化
+\begin{align}
+|a,t\ra=&e^{i\eta/2}(\cos\theta e^{-\frac{iE_+t}{\hbar}}|+\ra-\sin\theta e^{-\frac{iE_-t}{\hbar}}|-\ra)\\
+|b,t\ra=&e^{-i\eta/2}(\sin\theta e^{-\frac{iE_+t}{\hbar}}|+\ra+\cos\theta e^{-\frac{iE_-t}{\hbar}}|-\ra)
+\end{align}
+假设初态为$ |a\ra $，我们希望观察体系向态$ |b\ra $上转移的概率，即
+\begin{equation}\label{key}
+P_b(t)=|\la b|a,t\ra|^2=|\sin\theta\cos\theta(e^{\frac{-iE_+t}{\hbar}}-e^{\frac{-iE_-t}{\hbar}})|^2
+\end{equation}
+代入所有临时变量，得到
+\begin{equation}\label{key}
+P_b(t)=\dfrac{4|V_{ab}|^2}{(E_a-E_b)^2+4|V_{ab}|^2}\sin^2\left(\dfrac{\Omega_R}{2}t\right)
+\end{equation}
+其中
+\begin{equation}\label{key}
+\Omega_R=\frac{1}{\hbar}\sqrt{(E_a-E_b)^2+4|V_{ab}|^2}
+\end{equation}
+称为\textbf{拉比频率}。
