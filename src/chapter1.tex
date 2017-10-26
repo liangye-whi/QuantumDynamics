@@ -61,16 +61,69 @@ f(t)=Ce^{-\frac{iEt}{\hbar}}
 \end{equation}
 具体的变化行为，即求和的结果，一方面依赖于体系本身（$ E_n $），另一方面则与初态在本征态上的布居（$ |c_n|^2 $）有关系。
 
-下一节我们将借助最简单的二能级体系来直接观察这种条件下的时间演化。
+在展开各种具体问题之前，我们先进一步了解量子体系时间演化的理论描述。
 
-\section{二能级体系}
+\section{时间演化算符}
 \begin{framed}
-本节参考Atkins and Friedman, QM 3rd ed., pp 184--192。
+本节参考J. J. Sakurai, Modern QM, Rev ed., 第2章, pp 184--192。
 \end{framed}
-我们可以以任意一组正交归一的态矢量$ \{|\phi_n(\br)\ra\} $\footnote{定义上基组允许包含时间，但是通常我们只考虑静态基组。}作为标准正交基张成希尔伯特的一个子空间，将哈密顿量表示为矩阵形式，
-\begin{equation}\label{key}
-H_{ij}=\la \phi_i|\bH|\phi_j\ra
-\end{equation}
-此时，在该希尔伯特空间中求解薛定谔方程就化为了哈密顿量矩阵对角化的问题。显然，若以哈密顿量本征态为一组基，则哈密顿量矩阵为对角矩阵，对角元即对应本征态的能量本征值。
+我们从另一个角度来描述量子体系时间演化。
 
-通常哈密顿量的本征态有无穷多个，也就是说哈密顿量为无穷维。然而我们可以取抽象的二能级体系以简化问题。
+记$ t $时刻体系量子态为$ |\alpha,t\ra $\footnote{更一般的记法为$ |\alpha,t_0;t\ra $，若取$ t_0=0 $则简记为$ |\alpha,t\ra $。对下文算符$ \mU(t) $同理。}，则初态为
+\begin{equation}\label{key}
+|\alpha,0\ra\equiv|\alpha\ra
+\end{equation}
+我们将由时刻0到时刻$ t $量子态发生的变化归结为算符作用的结果
+\begin{equation}\label{key}
+|\alpha,t\ra=\mU(t)|\alpha\ra
+\end{equation}
+称之为\textbf{时间演化算符}，或者\textbf{传播子}。
+
+我们观察时间演化算符的性质。首先，算符作用前后量子态保持归一，则时间演化算符一定为酉算符，
+\begin{equation}\label{key}
+\mU^\dagger(t)\mU(t)=1
+\end{equation}
+其次，由于时间连续演化，算符也必须有加乘性
+\begin{equation}\label{key}
+\mU(t_2,t_0)=\mU(t_2,t_1)\mU(t_1,t_0)
+\end{equation}
+第三，时间是连续变量，那么演化时间微元的算符表示为
+\begin{equation}\label{key}
+\mU(dt)=1-\dfrac{iHdt}{\hbar}
+\end{equation}
+其中$ H $为哈密顿量\footnote{推导细节参考Goldstein 1980, 407-8)}。由这一性质可以推出
+\begin{equation}\label{key}
+\mU(t+dt)-\mU(t)=-\dfrac{iH}{\hbar}dt\mU(t)
+\end{equation}
+写成偏导数形式为
+\begin{equation}\label{key}
+i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
+\end{equation}
+此即\textbf{时间演化算符的薛定谔方程}。将方程两边的算符同时作用于量子态，就得到含时薛定谔方程\eqref{eqn:tdsefull}。也就是说，若能求得时间演化算符$ \mU(t) $，则相当于求解了含时薛定谔方程。这种方法比上节中直接求解含时薛定谔方程的方法更加方便。
+
+我们将所有时间演化问题根据其哈密顿量分为三种情况：
+
+第一种：若哈密顿量不含时，则时间演化算符为
+\begin{equation}\label{key}
+\mU(t)=\exp\left(\dfrac{-iHt}{\hbar}\right)
+\end{equation}
+作用时算符可以写为
+\begin{equation}\label{key}
+\mU(t)=\sum_n\exp\left(\dfrac{-iE_nt}{\hbar}\right)|n\ra\la n|
+\end{equation}
+其中态$ |n\ra $为哈密顿量的一组完备的本征态。可以验证作用结果与上节所求得的结果完全一致。
+
+第二种：若哈密顿量含时，但是在任意不同时间下的哈密顿量对易，即$ [H(t_1),H(t_2)]\equiv0 $，则时间演化算符为
+\begin{equation}\label{key}
+\mU(t)=\exp\left[-\dfrac{i}{\hbar}\int_0^t H(\tau)d\tau\right]
+\end{equation}
+由于哈密顿量含时，因此其本征态可能随时间变化。
+
+第三中：若哈密顿量含时，且不同时间下的哈密顿量不对易，那么时间演化算符写为\textbf{戴森级数}
+\begin{equation}\label{key}
+\mU(t)=1+\sum_{n=1}^\infty\left(\dfrac{-i}{\hbar}\right)^n\int_0^tdt_1\int_0^{t_1}dt_2\cdots\int_0^{t_{n-1}}dt_n H(t_1)H(t_2)\cdots H(t_n)
+\end{equation}
+
+本章我们主要介绍哈密顿量不含时的情况。关于后两种哈密顿量含时的情况将于下一章讨论。
+
+\section{静态哈密顿量非本征态的时间演化}
