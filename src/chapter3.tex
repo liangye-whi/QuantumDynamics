@@ -1,5 +1,76 @@
 % !TEX TS-program = pdflatex
 % !TEX root = ../QuantumDynamics.tex
 
-\chapter{含时微扰论与电子跃迁}
+\chapter{瞬间演化与绝热演化}
 \label{cpt:3}
+本章我们分析两种极端情况下体系时间演化的近似。
+\section{绝热近似}
+\begin{framed}
+本节参考L. I. Schiff QM 3rd ed., 35节, pp 289-291。
+\end{framed}
+相对于体系内部运动，体系外非常缓慢的改变导致体系的缓慢演化称为\textbf{绝热过程}。
+
+在量子体系中，假设哈密顿量的变化极其缓慢，则\textbf{绝热定理}称，假如体系初态为初始哈密顿量的第n个态上，则末态就处于终止哈密顿量的第n个态上。
+
+绝热定理的证明如下：
+
+对于满足含时薛定谔方程的态$ |\alpha,t\ra $
+\begin{equation}\label{eqn:3.1.2}
+i\hbar\frac{\pd}{\pd t}|\alpha,t\ra=H(t)|\alpha,t\ra
+\end{equation}
+将其在$ t $时刻哈密顿量$ H(t) $表象下展开，按照绝热假设\footnote{以下$ |n\ra $为$ |n,t\ra $的简记。}，
+\begin{equation}\label{key}
+|\alpha,t\ra=\sum_nc_n(t)|n\ra\exp\left[-\frac{i}{\hbar}\int_0^tE_n(\tau)d\tau\right]
+\end{equation}
+代入方程\eqref{eqn:3.1.2}，得到
+\begin{equation}\label{key}
+\sum_n\left[\dot{c}_n(t)|n\ra+c_n(t)\dfrac{\pd}{\pd t}|n\ra\right]\exp\left[-\frac{i}{\hbar}\int_0^tE_n(\tau)d\tau\right]=0
+\end{equation}
+得到关于$ c_n(t) $的微分方程
+\begin{equation}\label{eqn:3.1.5}
+\dot{c}_k(t)=-\sum_nc_n\la k|\dot{n}\ra\exp\left[-\dfrac{i}{\hbar}\int_0^t(E_n-E_k)d\tau\right]
+\end{equation}
+其中
+\begin{equation}\label{key}
+\la k|\dot{n}\ra\equiv\la k|\frac{\pd}{\pd t}|n\ra
+\end{equation}
+由于
+\begin{equation}\label{key}
+\dfrac{\pd H}{\pd t}|n\ra+H\dfrac{\pd}{\pd t}|n\ra=\dfrac{\pd E_n}{\pd t}|n\ra+E_m\dfrac{\pd}{\pd t}|n\ra
+\end{equation}
+等式两边左乘$ \la k| $得到
+\begin{equation}\label{key}
+\la k|\dfrac{\pd H}{\pd t}|n\ra=(E_n-E_k)\la k|\dot{n}\ra,\quad k\neq n
+\end{equation}
+而对于$ \la k|\dot{k}\ra $，由归一化条件$ \la k|k\ra=1 $两边求导，得到
+\begin{equation}\label{key}
+\la \dot{k}|k\ra+\la k|\dot{k}\ra=0
+\end{equation}
+则$ \la k|\dot{k}\ra $为纯虚数，可设为$ ia_k(t) $，其中$ a_k(t) $为实函数。
+现在可以将式\eqref{eqn:3.1.5}写为
+\begin{equation}\label{key}
+\dot{c}_k(t)=-c_k\la k|\dot{k}\ra-\sum_{n\neq k}c_n\dfrac{\la k|\frac{\pd H}{\pd t}|n\ra}{E_n-E_k}\exp\left[-\dfrac{i}{\hbar}\int_0^t(E_n-E_k)d\tau\right]
+\end{equation}
+现按照绝热假设，视$ \frac{\pd H}{\pd t} $可以忽略，则
+\begin{equation}\label{key}
+\dot{c}_k(t)=-c_k\la k|\dot{k}\ra
+\end{equation}
+是简单的微分方程，解之得
+\begin{equation}\label{key}
+c_k(t)=c_k(0)\exp\left[-\int_0^t\la k|\dot{k}\ra d\tau\right]=c_k(0)e^{-i\int_0^ta_k(t)dt}\equiv c_k(0)e^{-i\gamma_k(t)}
+\end{equation}
+这里$ \gamma_k(t) $称为\textbf{几何相因子}。最终，
+\begin{equation}\label{key}
+|\alpha,t\ra=\sum_nc_n(0)|n\ra\exp\left[-i\left(\frac{1}{\hbar}\int_0^tE_n(\tau)d\tau+\gamma_n(t)\right)\right]
+\end{equation}
+由此可见，在绝热近似下，态在本征态上的布居不发生改变；发生改变的只是多了一个几何相因子。
+
+一个典型的绝热近似是玻恩-奥本海默近似。
+
+\section{瞬变近似}
+\begin{framed}
+本节参考L. I. Schiff QM 3rd ed., 35节, pp 292-293。
+\end{framed}
+与绝热近似相反，瞬变近似假设体系在瞬间发生改变。我们认为，在哈密顿量发生瞬间变化的同时，波函数仍保留瞬间的状态，也就是说瞬间前后的哈密顿量本征态不同，虽然体系的态瞬间不变，但是时间演化的方式会发生变化。
+
+在实际问题中，我们将改变瞬间的波函数直接用新的本征态展开并讨论时间演化即可。

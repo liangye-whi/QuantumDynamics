@@ -1,5 +1,79 @@
 % !TEX TS-program = pdflatex
 % !TEX root = ../QuantumDynamics.tex
 
-\chapter{瞬间演化与绝热演化}
+\chapter{含时微扰论与电子跃迁}
 \label{cpt:2}
+上一章我们处理了哈密顿量不含时间时体系的时间演化问题。这一章我们利用一些近似手段来处理含时哈密顿量体系的时间演化问题。
+\section{相互作用绘景}
+\begin{framed}
+	本章参考J. J. Sakurai Modern QM Rev. ed., 5.5节。
+\end{framed}
+当哈密顿量含时间变量时，我们可以尝试用微扰论思想处理问题。设哈密顿量$ H $可以分为不含时与含时两部分
+\begin{equation}\label{key}
+H(t)=H_0+V(t)
+\end{equation}
+其中$ H_0 $有已知的本征解
+\begin{equation}\label{key}
+H_0|n\ra=E_n|n\ra
+\end{equation}
+然而，由于$ V(t)\neq 0 $，哈密顿量含时，即使初态是哈密顿量的本征态，体系也不能始终保持在该态上。$ V(t) $将会使体系向其他初始本征态转移。
+
+一般地，体系的初态可以写为
+\begin{equation}\label{key}
+|\alpha\ra=\sum_nc_n(0)|n\ra
+\end{equation}
+在$ t $时刻时，我们将其写为
+\begin{equation}\label{key}
+|\alpha,t\ra=\sum_nc_n(t)e^{-\frac{iE_nt}{\hbar}}|n\ra
+\end{equation}
+这样写的理由是，由上节可知，假如哈密顿量中不含时间演化部分$ V(t) $，系数$ e^{-\frac{iE_nt}{\hbar}} $依然存在；这样由$ V(t) $导致的时间演化就全部归结为系数$ c_n(t) $的演化。
+
+假若体系处于本征态$ |i\ra $，若哈密顿量不含时，则$ c_n(t)=c_n(0)=\delta_{ni} $。由此可以再次确认此时体系不会转移到别的本征态上去。
+
+假若体系处于本征态$ |i\ra $且哈密顿量含时，则$ c_n(t)\neq c_n(0)$，这就允许了态的转移，$ t $时间后转移到初始本征态$ |n\ra $上的布居为$ |c_n(t)|^2 $。这样只要求$ c_n(t) $就可以决定体系的时间演化。
+
+将时间演化按照不同的要素分开正是\textbf{相互作用绘景}的主要思想。下面我们介绍这一框架。
+
+设$ t $时刻体系的态为
+$ |\alpha,t\ra $。一直以来，我们使用的这种描述体系时间演化的方法被称为\textbf{薛定谔绘景}，为了使其区分与相互作用绘景，我们将其记为$ |\alpha,t\ra_S $。我们定义相互作用绘景下态的表示为
+\begin{equation}\label{key}
+|\alpha,t\ra_I\equiv e^{\frac{iH_0t}{\hbar}}|\alpha,t\ra_S
+\end{equation}
+相应地，相互作用绘景下的算符表达为
+\begin{equation}\label{key}
+A_I\equiv e^{\frac{iH_0t}{\hbar}}A_Se^{-\frac{iH_0t}{\hbar}}
+\end{equation}
+而哈密顿量中的含时部分$ V(t) $则可以表示为
+\begin{equation}\label{key}
+V_I\equiv e^{\frac{iH_0t}{\hbar}}V(t)e^{-\frac{iH_0t}{\hbar}}
+\end{equation}
+这样定义的优点在于，我们可以将薛定谔方程改写为
+\begin{equation}\label{key}
+i\hbar\frac{\pd}{\pd t}|\alpha,t\ra_I=V_I|\alpha,t\ra_I
+\end{equation}
+同时将海森堡方程改写为
+\begin{equation}\label{key}
+\dfrac{dA_I}{dt}=\dfrac{1}{i\hbar}[A_I,H_0]
+\end{equation}
+而在零阶哈密顿量表象下态可以写为
+\begin{equation}\label{key}
+|\alpha,t\ra_I=\sum_nc_n(t)|n\ra
+\end{equation}
+最终，可以得出$ c_n(t) $的一般的微分方程组
+\begin{equation}\label{key}
+i\hbar\begin{pmatrix}
+\dot{c_1}\\\dot{c_2}\\\vdots
+\end{pmatrix}=\begin{pmatrix}
+V_{11}&V_{12}e^{i\omega_{12}t}&\cdots\\
+V_{21}e^{i\omega_{21}t}&V_{22}&\cdots\\
+\vdots&\vdots&\ddots
+\end{pmatrix}\begin{pmatrix}
+c_1\\c_2\\\vdots
+\end{pmatrix}
+\end{equation}
+其中
+\begin{equation}\label{key}
+\omega_{mn}\equiv\dfrac{E_n-E_m}{\hbar}
+\end{equation}
+
+\section{实例：电磁场与体系的相互作用}
