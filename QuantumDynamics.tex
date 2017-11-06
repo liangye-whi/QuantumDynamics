@@ -11,11 +11,13 @@
 \usepackage{mathrsfs}
 \usepackage{framed}
 \usepackage[perpage]{footmisc}
+\usepackage{makeidx}
 %\usepackage[beramono,eulermath,pdfspacing,listings]{classicthesis}
 %\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
-
+\makeindex
 \input{settings}
 \begin{document}
+
 \frontmatter
 \input{FrontBack/Titlepage}
 \pagenumbering{roman}
@@ -28,4 +30,5 @@
 \include{src/chapter3}
 \include{src/chapter4}
 \include{src/chapter5}
+\printindex
 \end{document}

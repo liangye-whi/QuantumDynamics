@@ -77,7 +77,7 @@ f(t)=Ce^{-\frac{iEt}{\hbar}}
 \begin{equation}\label{key}
 |\alpha,t\ra=\mU(t)|\alpha\ra
 \end{equation}
-称之为\textbf{时间演化算符}，或者\textbf{传播子}。
+称之为\textbf{时间演化算符}，或者\textbf{传播子}\index{ch@传播子}。
 
 我们观察时间演化算符的性质。首先，算符作用前后量子态保持归一，则时间演化算符一定为酉算符，
 \begin{equation}\label{key}
@@ -99,7 +99,7 @@ f(t)=Ce^{-\frac{iEt}{\hbar}}
 \begin{equation}\label{key}
 i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
 \end{equation}
-此即\textbf{时间演化算符的薛定谔方程}。将方程两边的算符同时作用于量子态，就得到含时薛定谔方程\eqref{eqn:tdsefull}。也就是说，若能求得时间演化算符$ \mU(t) $，则相当于求解了含时薛定谔方程。这种方法比上节中直接求解含时薛定谔方程的方法更加方便。
+此即\textbf{时间演化算符的薛定谔方程}。将方程两边的算符同时作用于量子态，就得到含时薛定谔方程\eqref{eqn:tdsefull}。也就是说，\underline{若能求得时间演化算符$ \mU(t) $，则相当于求解了含时薛定谔方程}。这种方法比上节中直接求解含时薛定谔方程的方法更加方便。
 
 我们将所有时间演化问题根据其哈密顿量分为三种情况：
 
@@ -119,7 +119,7 @@ i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
 \end{equation}
 由于哈密顿量含时，因此其本征态可能随时间变化。
 
-第三中：若哈密顿量含时，且不同时间下的哈密顿量不对易，那么时间演化算符写为\textbf{戴森级数}
+第三种：若哈密顿量含时，且不同时间下的哈密顿量不对易，那么时间演化算符写为\textbf{戴森级数}\index{da@戴森级数}
 \begin{equation}\label{key}
 \mU(t)=1+\sum_{n=1}^\infty\left(\dfrac{-i}{\hbar}\right)^n\int_0^tdt_1\int_0^{t_1}dt_2\cdots\int_0^{t_{n-1}}dt_n H(t_1)H(t_2)\cdots H(t_n)
 \end{equation}
@@ -128,7 +128,7 @@ i\hbar\dfrac{\pd}{\pd t}\mU(t)=H\mU(t)
 
 \section{实例：静态哈密顿量叠加态的时间演化}
 \begin{framed}
-本章参考Nitzan 第2章, pp 57--63。	
+本节参考Nitzan 第2章, pp 57--63。	
 \end{framed}
 
 我们以最简单的二能级体系来讨论这个问题。
@@ -178,6 +178,6 @@ P_b(t)=\dfrac{4|V_{ab}|^2}{(E_a-E_b)^2+4|V_{ab}|^2}\sin^2\left(\dfrac{\Omega_R}{
 \begin{equation}\label{key}
 \Omega_R=\frac{1}{\hbar}\sqrt{(E_a-E_b)^2+4|V_{ab}|^2}
 \end{equation}
-称为\textbf{拉比频率}。
+称为\textbf{拉比频率}\index{la@拉比频率}。
 
 由此，我们可以使用时间演化算符解决任何静态哈密顿量体系的时间演化问题。下面我们将处理动态哈密顿量体系的时间演化问题。

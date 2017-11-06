@@ -6,7 +6,7 @@
 上一章我们处理了哈密顿量不含时间时体系的时间演化问题。这一章我们利用一些近似手段来处理含时哈密顿量体系的时间演化问题。
 \section{相互作用绘景}
 \begin{framed}
-	本章参考J. J. Sakurai Modern QM Rev. ed., 5.5节。
+	本节参考J. J. Sakurai Modern QM Rev. ed., 5.5节。
 \end{framed}
 当哈密顿量含时间变量时，我们可以尝试用微扰论思想处理问题。设哈密顿量$ H $可以分为不含时与含时两部分
 \begin{equation}\label{key}
@@ -28,7 +28,7 @@ H_0|n\ra=E_n|n\ra
 \end{equation}
 这样写的理由是，由上节可知，假如哈密顿量中不含时间演化部分$ V(t) $，系数$ e^{-\frac{iE_nt}{\hbar}} $依然存在；这样由$ V(t) $导致的时间演化就全部归结为系数$ c_n(t) $的演化。
 
-假若体系处于本征态$ |i\ra $，若哈密顿量不含时，则$ c_n(t)=c_n(0)=\delta_{ni} $。由此可以再次确认此时体系不会转移到别的本征态上去。
+假若体系初始处于本征态$ |i\ra $，若哈密顿量不含时，则$ c_n(t)=c_n(0)=\delta_{ni} $。由此可以再次确认此时体系不会转移到别的本征态上去。
 
 假若体系处于本征态$ |i\ra $且哈密顿量含时，则$ c_n(t)\neq c_n(0)$，这就允许了态的转移，$ t $时间后转移到初始本征态$ |n\ra $上的布居为$ |c_n(t)|^2 $。这样只要求$ c_n(t) $就可以决定体系的时间演化。
 
@@ -75,5 +75,83 @@ c_1\\c_2\\\vdots
 \begin{equation}\label{key}
 \omega_{mn}\equiv\dfrac{E_n-E_m}{\hbar}
 \end{equation}
+以上就是体系的运动方程。
 
-\section{实例：电磁场与体系的相互作用}
+\section{转移概率的微扰解}
+\begin{framed}
+本节参考J. J. Sakurai Modern QM Rev. ed., 5.6节。
+\end{framed}
+设初始态为初始哈密顿量的本征态$ |i\ra $。由于
+\begin{equation}\label{key}
+c_n(t)=\la n| U_I(t)|i\ra
+\end{equation}
+按照戴森展开,
+\begin{align}\label{key}
+U_I(t)=&1-\dfrac{i}{\hbar}\int_0^tdt'V_I(t')+\left(\dfrac{-i}{\hbar}\right)^2\int_0^tdt'\int_0^{t'}dt''V_I(t')V_I(t')+\cdots\nonumber\\
+&+\left(\dfrac{-i}{\hbar}\right)^n\int_0^tdt'\int_0^{t'}dt''\cdots\int_0^{t^{(n-1)}}dt^{(n)}V_I(t')V_I(t'')\cdots V_I(t^{(n)})+\cdots
+\end{align}
+求得
+\begin{align}
+c_n^{(0)}(t)=&\delta_{ni}\\
+c_n^{(1)}(t)=&-\dfrac{i}{\hbar}\int_0^t\la n|V_I(t')|i\ra dt'=-\dfrac{i}{\hbar}\int_0^t e^{i\omega t'}V_{ni}(t') dt'\\
+c_n^{(2)}(t)=&-\dfrac{1}{\hbar^2}\sum_m\int_0^tdt'\int_0^{t'}dt''e^{i\omega_{nm}t'}V_{nm}(t')e^{i\omega_{nm}t''}V_{nm}(t'')
+\end{align}
+由此，由$ |i\ra\to|n\ra $的\textbf{转移概率}\index{zhug@转移概率}为
+\begin{equation}\label{key}
+P_{i\to n}(t)=|c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots|^2
+\end{equation}
+另外，定义\textbf{转移速率}\index{zhus@转移速率}为\footnote{这里$ [n] $表示所有可能的转移目的能级。}
+\begin{equation}\label{key}
+w_{i\to [n]}=\dfrac{d}{dt}\left(\sum_n|c_n^{(1)}|^2\right)
+\end{equation}
+\section{实例：光量子与体系的相互作用}
+\begin{framed}
+本节参考J. J. Sakurai Modern QM Rev. ed., 5.6节与D. J. Griffiths QM 9.1.3。
+\end{framed}
+
+当体系与电磁波（例如光）发生相互作用的时候，可以将电磁波视为简谐微扰
+\begin{equation}\label{key}
+V(t)=Ve^{i\omega t}+V^\dagger e^{-i\omega t}
+\end{equation}
+设$ H_0 $的本征态已知且作为一组基，那么在$ H_0 $表象下$ V $是对角元为0的矩阵。
+运动方程的在一阶微扰近似下的解为
+\begin{align}\label{lit}
+c_n^{(1)}=&-\dfrac{i}{\hbar}\int_0^t(Ve^{i\omega t}+V^\dagger e^{-i\omega t})e^{i\omega_{ni} t'}dt'\nonumber\\
+=&\dfrac{1}{\hbar}\left[\dfrac{1-e^{i(\omega+\omega_{ni})t}}{\omega+\omega_{ni}}V_{ni}+\dfrac{1-e^{i(-\omega+\omega_{ni})t}}{-\omega+\omega_{ni}}V_{ni}^\dagger\right]
+\end{align}
+
+当$ t\to\infty $，$ |c_n^{(1)}|^2 $显著当且仅当
+\begin{align}
+&\omega_{ni}+\omega\simeq 0 \text{ 即 } E_n\simeq E_i-\hbar\omega\\
+\text{或 }&\omega_{ni}-\omega\simeq 0 \text{ 即 } E_n\simeq E_i+\hbar\omega
+\end{align}
+显然，当\eqref{lit}中右边第一项显著时，第二项可以忽略不计；反之亦然。从这里看出，在这种情况下能量不守恒，体系吸收一个光子的能量或者释放出一个光子的能量。因此，当能级差刚好为$ \pm \hbar\omega $时，转移概率为
+\begin{equation}\label{key}
+P_{i\to n}(t)\simeq|c_n(t)|^2=\dfrac{|V_{ni}|^2}{\hbar^2}\dfrac{\sin^2[(\omega_{ni}\pm\omega)t/2]}{(\omega_{ni}\pm\omega)^2}
+\end{equation}
+这其实是一个近似的$ \delta $函数
+\begin{equation}\label{key}
+\lim_{\alpha\to\infty}\dfrac{1}{\pi}\dfrac{\sin^2\alpha x}{\alpha x^2}=\delta(x)
+\end{equation}
+所以转移速率可以写为
+\begin{equation}\label{key}
+w_{i\to n}=\dfrac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i\pm\hbar\omega)
+\end{equation}
+以上态跃迁的选律就是\textbf{费米黄金法则}\index{fe@费米黄金法则}。
+
+\section{旋波近似}
+\begin{framed}
+本节参考K. Fujii, \textit{Introduction to the Rotating Wave Approximation (RWA) : Two Coherent Oscillations},  	arXiv:1301.3585
+\end{framed}
+在量子光学中，\textbf{旋波近似}（RWA）指直接忽略有效哈密顿量中的高频振动。因为当$ n $足够大时，
+\begin{equation}\label{key}
+e^{\pm in\theta}\Rightarrow\int e^{\pm in\theta}d\theta=\dfrac{e^{\pm in\theta}}{\pm in}\approx 0
+\end{equation}
+
+有时，不是特别高频的振动项也可以忽略，例如
+\begin{equation}\label{key}
+2\cos\theta=e^{i\theta}+e^{-i\theta}=e^{i\theta}(1+e^{-2i\theta})\approx e^{i\theta}
+\end{equation}
+这样原本的平面波在近似下成为一个旋波；而多个旋波在近似下只取频率最低的一个旋波。
+
+上一节中，关于\eqref{lit}中两项相对大小的论述本质上就是旋波近似的一个应用。当光子频率离开共振频率时，这一近似不再适用。
