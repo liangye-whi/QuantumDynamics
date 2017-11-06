@@ -3,3 +3,63 @@
 
 \chapter{密度矩阵的时间演化}
 \label{cpt:5}
+\section{密度矩阵的基本形式}
+\begin{framed}
+本节参考May and Kuhn, Charge and Energy Transfer Dynamics in Molecular Systems, 3rd ed., 3.4节
+\end{framed}
+在统计热力学观点下，系综包含态$ |\Psi_i\ra=\sum_a c_{ia}|a\ra $，设态密度为$ p_i $，则体系的\textbf{密度算符}定义为
+\begin{equation}\label{key}
+\rho=\sum_i p_i|\Psi_i\ra\la\Psi_i|,\qquad \text{其中 }\sum_i p_i=1
+\end{equation}
+而\textbf{密度矩阵}就是密度算符在给定基组$ |a\ra $下的矩阵表示，两者本质上等价。密度矩阵的迹为1，厄密而且半正定。密度矩阵的对角元
+\begin{equation}\label{key}
+\rho_{aa}=\sum_i p_i \la a|\Psi_i\ra\la\Psi_i|a\ra=\sum_i p_i |c_{ia}|^2
+\end{equation}
+表示体系处于态$ |a\ra $的概率密度；而密度矩阵的非对角元
+\begin{equation}\label{key}
+\rho_{ab}=\sum_i p_i \la a|\Psi_i\ra\la\Psi_i|b\ra=\sum_i p_i c_{ia}c_{ib}^*
+\end{equation}
+定义为体系的\textbf{相干性}\index{xia@相干性}。密度矩阵的施瓦茨不等式
+\begin{equation}\label{key}
+\rho_{aa}\rho_{bb}\geqslant|\rho_ab|^2
+\end{equation}
+等号成立当且仅当体系包含这态$ |a\ra $和$ |b\ra $的叠加态。
+
+假若系综只包含一个允许的态，此时的密度矩阵表示为
+\begin{equation}\label{key}
+\rho_i=|\Psi_i\ra\la\Psi_i|
+\end{equation}
+称为\textbf{纯态}\index{chu@纯态}，否则称为\textbf{混态}\index{hu@混态}。纯态的密度矩阵为幂等矩阵。若纯态不为选定的希尔伯特空间的基函数，或说是一个叠加态，则密度矩阵的非对角元一定不为零。而混态的密度矩阵非对角元则可能为零。密度矩阵对角元为零的混态称为完全混态，否则称为部分混态。假如取微正则系综且，则混态一定为完全混态\footnote{有待证明。在取系综中允许的态作为基时密度矩阵非对角元为零。}。假如取正则系综，则密度矩阵写为
+\begin{equation}\label{key}
+\rho=\dfrac{e^{-\beta H}}{\Tr(e^{-\beta H})}
+\end{equation}
+
+算符$ A $对应的统计期望值表示为
+\begin{equation}\label{key}
+\la A\ra=\Tr(\rho A)
+\end{equation}
+
+\section{密度矩阵的时间演化}
+\begin{framed}
+	本节参考May and Kuhn, Charge and Energy Transfer Dynamics in Molecular Systems, 3rd ed., 3.4节
+\end{framed}
+由薛定谔方程，可以导出密度矩阵满足的动力学方程
+\begin{equation}\label{key}
+\dfrac{\pd}{\pd t}\rho(t)=-\dfrac{i}{\hbar}[H,\rho(t)]
+\end{equation}
+称为\textbf{刘维尔-冯诺依曼方程}\index{life@刘维尔-冯诺依曼方程}。我们可以定义刘维尔算符$ \mathscr{L} $
+\begin{equation}\label{key}
+\mathscr{L}\rho=\dfrac{1}{\hbar}[H,\rho]
+\end{equation}
+则刘维尔-冯诺依曼方程可写为类似薛定谔方程的形式
+\begin{equation}\label{key}
+\dfrac{\pd}{\pd t}\rho(t)=-i\mathscr{L}\rho(t)
+\end{equation}
+有着类似的解，那么也可以使用时间演化算符来处理时间演化问题。最终可以得到
+\begin{equation}\label{key}
+\rho(t)=\mU(t)\rho(0)\mU^\dagger(t)
+\end{equation}
+这里的$ \mU(t) $就是\eqref{ppg}定义的态的时间演化算符；这一结果也可直接由\eqref{ppg}导出。以刘维尔算符表达时，需要将密度矩阵视为向量；而使用时间演化算符表达时，仍然用矩阵表示即可。
+
+密度矩阵表示和态的表示完全等价，而在处理退相干和退相位问题时更加直观。
+
